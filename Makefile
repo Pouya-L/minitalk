@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+         #
+#    By: plashkar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 13:37:11 by plashkar          #+#    #+#              #
-#    Updated: 2023/11/09 17:20:36 by plashkar         ###   ########.fr        #
+#    Updated: 2023/11/10 15:23:13 by plashkar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,9 +65,7 @@ clean:
 	@echo Object files have been deleted.
 
 fclean: clean
-	@clean
 	@rm -f $(SERVER) $(CLIENT)
-	@rm -f clean
 	@make -C $(LIBFT_DIR) fclean > /dev/null
 	@echo All created files have been deleted.
 

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:22:12 by plashkar          #+#    #+#             */
-/*   Updated: 2023/11/09 20:12:09 by plashkar         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:07:42 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
-
 
 int	ft_check_args_minitalk(int argc, char **argv)
 {
@@ -20,7 +19,7 @@ int	ft_check_args_minitalk(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		ft_printf("Invalid number of arguments\n");
+		ft_printf("%sInvalid number of arguments%s\n", RED, DEFAULT);
 		return (0);
 	}
 	if (argc == 3)
@@ -29,16 +28,15 @@ int	ft_check_args_minitalk(int argc, char **argv)
 		i = 0;
 		while (argv[1][i])
 		{
-			if (!ft_isdigit(argv[1][i]) || pid >= 4194304)
+			if (!ft_isdigit(argv[1][i]) || pid > 4194304 || pid <= 0)
 			{
-				ft_printf("Invalid pid\n");
+				ft_printf("%sInvalid pid%s\n", RED, DEFAULT);
 				return (0);
 			}
 			i++;
 		}
 	}
-	else
-		return (1);
+	return(1);
 }
 
 void	ft_send_bits(int pid, char c)

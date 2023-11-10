@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 19:05:26 by plashkar          #+#    #+#             */
-/*   Updated: 2023/10/03 11:05:14 by plashkar         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:02:17 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdarg.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <limits.h>
+# include <signal.h>
 
 //Part 1 - Libc functions
 
@@ -36,7 +38,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memchr(const void*s, int c, size_t n);
 
-long	ft_atoi(const char *str);
+int		ft_overflow_err(const char *str);
+int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
