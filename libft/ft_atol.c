@@ -6,7 +6,7 @@
 /*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:36:22 by plashkar          #+#    #+#             */
-/*   Updated: 2023/11/10 15:55:33 by plashkar         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:13:03 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_overflow_err(const char *str)
 
 long	ft_atol(const char *str)
 {
-	int	sign;
+	int		sign;
 	long	value;
 	long	i;
 
@@ -40,7 +40,7 @@ long	ft_atol(const char *str)
 		while (str[i] >= '0' && str[i] <= '9')
 		{
 			if (value > (LONG_MAX - (str[i] - '0')) / 10)
-				return((long)ft_overflow_err(str));
+				return ((long)ft_overflow_err(str));
 			value = value * 10 + (str[i++] - '0');
 		}
 		break ;
