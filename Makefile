@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: plashkar <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 13:37:11 by plashkar          #+#    #+#              #
-#    Updated: 2023/11/10 15:23:13 by plashkar         ###   ########.fr        #
+#    Updated: 2023/11/21 17:45:13 by plashkar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,8 @@ SERVER_BONUS_OBJ = $(SERVER_BONUS_SRC:.c=.o)
 
 all: $(SERVER) $(CLIENT)
 
+bonus: $(SERVER_BONUS) $(CLIENT_BONUS)
+
 $(CLIENT): $(CLIENT_OBJ) $(OBJ)
 	@echo "Compiling $@"
 	@make -C $(LIBFT_DIR) > /dev/null
@@ -58,6 +60,18 @@ $(SERVER): $(SERVER_OBJ) $(OBJ)
 	@$(CC) $(STANDARD_FLAGS) $(INCLUDE) $(SERVER_OBJ) $(LIBFT_A)  -o server > /dev/null
 	@echo "server has been created."
 
+$(CLIENT_BONUS): $(CLIENT_BONUS_OBJ) $(OBJ)
+	@echo "Compiling $@"
+	@make -C $(LIBFT_DIR) > /dev/null
+	@$(CC) $(STANDARD_FLAGS) $(INCLUDE) $(CLIENT_BONUS_OBJ) $(LIBFT_A)  -o client_bonus > /dev/null
+	@echo "client_bonus has been created."
+
+$(SERVER_BONUS): $(SERVER_BONUS_OBJ) $(OBJ)
+	@echo "Compiling $@"
+	@make -C $(LIBFT_DIR) > /dev/null
+	@$(CC) $(STANDARD_FLAGS) $(INCLUDE) $(SERVER_BONUS_OBJ) $(LIBFT_A)  -o server_bonus > /dev/null
+	@echo "server_bonus has been created."
+
 clean:
 	@rm -f src/*.o
 	@rm -f bonus_src/*.o
@@ -66,6 +80,7 @@ clean:
 
 fclean: clean
 	@rm -f $(SERVER) $(CLIENT)
+	@rm -f $(SERVER_BONUS) $(CLIENT_BONUS)
 	@make -C $(LIBFT_DIR) fclean > /dev/null
 	@echo All created files have been deleted.
 
