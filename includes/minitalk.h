@@ -6,7 +6,7 @@
 /*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:09:41 by plashkar          #+#    #+#             */
-/*   Updated: 2023/11/10 15:05:52 by plashkar         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:16:01 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define MINITALK_H
 
 # include "../libft/libft.h"
+# include <features.h>
 # include <signal.h>
+
+# define _GNU_SOURCE
 
 //Color codes for ft_printf
 # define DEFAULT "\033[0m"

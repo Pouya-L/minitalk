@@ -6,7 +6,7 @@
 /*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:22:12 by plashkar          #+#    #+#             */
-/*   Updated: 2023/11/10 16:07:42 by plashkar         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:54:18 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	ft_send_bits(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
+		usleep(WAIT_TIME);
 		bit--;
 	}
-	usleep(WAIT_TIME);
 }
 
 int	main(int argc, char **argv)
